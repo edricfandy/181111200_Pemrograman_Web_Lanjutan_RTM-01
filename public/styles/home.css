@@ -1,0 +1,9 @@
+#searchBar input:focus, #searchBar select:focus, #searchBar button:focus {
+  border: 0;
+  outline: 0;
+}
+
+.btn-search {
+  width: 30px;
+  height: 30px;
+}

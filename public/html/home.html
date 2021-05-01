@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Akun Baru - JENNIFER FASHION</title>
+  <link rel="stylesheet" href="../styles/main.css" />
+  <link rel="stylesheet" href="../styles/home.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="container">
+  <script>require('navbar.html')</script>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">
+      <img src="../images/logo.png" alt="Logo JENNIFER" class="logo">
+    </a>
+    <button class="navbar-toggler navbar-light custom-toggler" type="button" data-toggle="collapse" data-target="#navItems" aria-controls="navItems" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navItems">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-2"><a href="" class="nav-link active navlink">Beranda</a></li>
+        <li class="nav-item mx-2"><a href="/products" class="nav-link navlink">Produk</a></li>
+        <li class="nav-item mx-2"><a href="/transactions" class="nav-link navlink">Transaksi</a></li>
+        <li class="nav-item mx-2"><a href="/about" class="nav-link navlink">Tentang Kami</a></li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item mx-2"><a href="#" class="nav-link login-link">LOGIN</a></li>
+        <li class="nav-item mx-2"><a href="#" class="nav-link register-link">DAFTAR</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="carousel slide" id="carouselHome" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselHome" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselHome" data-slide-to="1"></li>
+      <li data-target="#carouselHome" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="" alt="First Item" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="" alt="Second Item" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="" alt="Third Item" class="d-block w-100">
+      </div>
+    </div>
+    <a href="#carouselHome" class="carousel-control-prev" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a href="#carouselHome" class="carousel-control-next" role="button" data-slide="prev">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <form class="form inline-form row h-100 p-2 border" method="get" action="/products" id="searchBar">
+    <div class="col-5 col-md-4 col-lg-3 d-inline-block border-right">
+      <select name="filterProductSearch" id="filterProductSearch" class="col-md-10 offset-md-1 h-100 p-2 border-0">
+        <option value="ALL">Semua</option>
+        <option value="DS">Daster</option>
+        <option value="SD">Sekdress</option>
+        <option value="LD">LongDress</option>
+        <option value="CP">Celana Panjang</option>
+        <option value="C_3/4">Celana 3/4</option>
+      </select>
+    </div>
+    <div class="col-7 col-md-8 col-lg-9 mr-0 w-100 d-inline-block justify-content-between">
+      <input type="text" class="col-11 h-100 border-0" name="searchString" placeholder="Cari Produk" />
+      <button type="button" class="d-inline ml-3 p-2 border-0 bg-white">
+        <img src="../images/icon_search.png" alt="Search" class="btn-search" />
+      </button>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
