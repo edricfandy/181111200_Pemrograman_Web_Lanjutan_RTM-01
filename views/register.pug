@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Masuk - TOKO BAJU JENNIFER
+    link(rel="stylesheet", href="../styles/main.css")
+    link(rel="stylesheet", href="../styles/register.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+  body.container-fluid 
+    .row.pt-8
+      .col-lg-5.pt-lg-5.d-none.d-lg-inline-block
+        .col-lg-8.offset-lg-4 
+          a(href="/")
+            img.logo.d-block.mt-5(src="../images/logo.png", alt="LOGO TOKO BAJU JENNIFER")
+          p.motto.mt-3.text-center Berbelanja Batik Rumahan dengan Aman dan Nyaman
+      .col-12.col-lg-7.pt-lg-5 
+        .col-lg-8.mx-auto.border-lg 
+          a(href="/")
+            img.logo.d-inline-block.d-lg-none.col-6.offset-3.mt-4(src="../images/logo.png", alt="LOGO TOKO BAJU JENNIFER")
+          if status
+            .col-12.p-2.mb-3.process-failed
+              if status == 1
+                | No. Telepon sudah terdaftar 
+              else 
+                | Username sudah terdaftar
+          h4.mt-3.mt-lg-0.title Masuk ke Akun Anda
+          p Sudah punya akun? &nbsp;
+            a(href="/login/") Masuk
+          form(method="POST", action="/register/") 
+            .form-group
+              label(for="phone_num") No. Telepon
+                span.text-danger *
+              input.form-control.register-data-input#phone_num(type="tel", name="phone_num", required)
+            .form-group
+              label(for="name") Nama Lengkap
+                span.text-danger *
+              input.form-control.register-data-input#name(type="text", name="name", required)
+            .form-group
+              label(for="username") Username
+                span.text-danger *
+              input.form-control.register-data-input#username(type="text", name="username", required)
+            .row 
+              .form-group.col
+                label(for="password") Kata Sandi 
+                  span.text-danger *
+                input.form-control.register-data-input#password(type="password", name="password", required)
+              .form-group.col
+                label(for="confirm_password") Konfirmasi Kata Sandi 
+                  span.text-danger *
+                input.form-control.register-data-input#confirm_password(type="password", name="confirm_password", required)
+            p
+              small Required
+                span.text-danger *
+            p
+              small Dengan mendaftar, Anda setuju dengan 
+                a(href="#") Syarat, Ketentuan, dan Kebijakan 
+                | dari Toko Baju Jennifer
+            .row
+              button.btn.btn-primary.mx-auto.mt-3(type="submit") Masuk
+
+

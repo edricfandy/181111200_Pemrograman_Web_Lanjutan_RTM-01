@@ -1,0 +1,57 @@
+form[name="main"] label { 
+  font-family: open-sans-bold;
+  font-size: 12px;
+} 
+form[name="main"] input, button { 
+  font-family: open-sans-reguler;
+  font-size: 12px;
+}
+.field-input { 
+  font-size: 14px;
+}
+.process-success {
+  padding: 5px 8px;
+  background-color: #92EF82;
+  border: 2px solid green;
+  border-radius: 10px;
+}
+.process-failed {
+  padding: 5px 8px;
+  background-color: #f5bdb3;
+  border: 1px solid red;
+  border-radius: 10px;
+}
+.process-need-action {
+  background-color: lightblue;
+  border: 1px solid lightskyblue;
+  border-radius: 10px;
+}
+thead tr {
+  background-color: gray;
+}
+td {
+  background-color: rgba(255, 255, 255, 0)
+}
+tbody>tr:hover {
+  background-color: lightgray;
+}
+.selected-row {
+  background-color: lightgray;
+}
+#searchBar input:focus, #searchBar select:focus, #searchBar button:focus {
+  border: 0;
+  outline: 0;
+}
+button>img {
+  width: 30px;
+  height: 30px;
+}
+a>img{
+  width: 20px;
+  height: 20px;
+}
+.btnEdit, .btnDelete {
+  display: inline-block;
+  padding: 0 5px;
+  margin-right: 10px;
+}

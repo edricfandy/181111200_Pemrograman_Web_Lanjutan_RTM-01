@@ -1,0 +1,105 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Manage Products (Admin) - TOKO BAJU JENNIFER
+    link(rel="stylesheet", href="../styles/main.css")
+    link(rel="stylesheet", href="../styles/products_admin.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+  body(class="container")
+    img.logo(src="../images/logo.png", alt="LOGO TOKO BAJU JENNIFER")
+    h4.text-center.my-4 CRUD Database Produk Toko Baju Jennifer
+    if status
+      if status == 'Save Successful'
+        .col.p-2.mb-3.process-success Barang berhasil ditambahkan!
+      else 
+        .col.p-2.mb-3.process-failed Barang gagal ditambahkan. ID Produk yang dimasukkan telah digunakan.
+    
+    form(action="", method="GET")
+      .row#searchBar
+        input(type="text", name="searchString", placeholder="Search", required)
+        button(type="submit", name="btnSearch")
+          img(src="../images/icon_search.png", alt="SEARCH")
+      .row 
+        .col-3
+          .form-check
+            input#tipe_semua(type="checkbox", name="filterTipeProduk", value="tipe_semua")
+            label(for="tipe_semua") Semua
+          .form-check
+            input#tipe_daster(type="checkbox", name="filterTipeProduk", value="tipe_daster")
+            label(for="tipe_daster") Daster
+          .form-check
+            input#tipe_sekdress(type="checkbox", name="filterTipeProduk", value="tipe_sekdress")
+            label(for="tipe_sekdress") Sekdress
+          .form-check
+            input#tipe_longdress(type="checkbox", name="filterTipeProduk", value="tipe_longdress")
+            label(for="tipe_longdress") Longdress
+          .form-check
+            input#tipe_gamis_batik(type="checkbox", name="filterTipeProduk", value="tipe_gamis_batik")
+            label(for="tipe_gamis_batik") Gamis Batik
+          .form-check
+            input#tipe_hot_pants(type="checkbox", name="filterTipeProduk", value="tipe_hot_pants")
+            label(for="tipe_hot_pants") Hot Pants
+          .form-check
+            input#tipe_rok_celana(type="checkbox", name="filterTipeProduk", value="tipe_rok_celana")
+            label(for="tipe_rok_celana") Rok Celana
+          .form-check
+            input#tipe_celana_ponggol(type="checkbox", name="filterTipeProduk", value="tipe_celana_ponggol")
+            label(for="tipe_celana_ponggol") Celana Ponggol
+          .form-check
+            input#tipe_celana_panjang(type="checkbox", name="filterTipeProduk", value="tipe_celana_panjang")
+            label(for="tipe_celana_panjang") Celana Panjang
+        .col-3 
+          .form-check 
+            input#lengan_semua(type="checkbox", name="filterLenganProduk", value="lengan_semua")
+            label(for="lengan_semua") Semua
+          .form-check 
+            input#lengan_kensi(type="checkbox", name="filterLenganProduk", value="lengan_kensi")
+            label(for="lengan_kensi") Kensi
+          .form-check 
+            input#lengan_pendek(type="checkbox", name="filterLenganProduk", value="lengan_pendek")
+            label(for="lengan_pendek") Lengan Pendek
+          .form-check 
+            input#lengan_tiga_per_empat(type="checkbox", name="filterLenganProduk", value="lengan_tiga_per_empat")
+            label(for="lengan_tiga_per_empat") Lengan 3/4
+          .form-check 
+            input#lengan_panjang(type="checkbox", name="filterLenganProduk", value="lengan_panjang")
+            label(for="lengan_panjang") Lengan Panjang
+    .row.my-3
+      .d-inline-block.ml-auto
+        a.btn.btn-outline-primary#btnAddItem(href="/products_admin/add") &plus; TAMBAH ITEM
+    .row
+      table.table
+        thead 
+          tr
+            th #
+            th ID
+            th Nama
+            th Tipe
+            th Lengan
+            th Merk
+            th Harga
+            th Stok
+            th &nbsp;
+        for p, i in data
+          tr 
+            td= i+1
+            td= p.id_produk
+            td= p.nama_produk 
+            td= p.tipe_produk 
+            td= p.panjang_lengan 
+            td= p.merk_produk 
+            td= p.harga_produk
+            td= p.stok_produk
+            - let updateLink = "/products_admin/update/" + p.id_produk
+            td
+              a.btnEdit.d-inline-block.justify-content-between(href=updateLink)
+                img(src="../images/icons-edit.png", alt="EDIT")
+              a.btnDelete.d-inline-block.justify-content-between(href="/products_admin") 
+                img(src="../images/icons-trash.png", alt="DELETE")
+        else
+          tr 
+            td No Data
+    script(src="../javascripts/products_admin.js")

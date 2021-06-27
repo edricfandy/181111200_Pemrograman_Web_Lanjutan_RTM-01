@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Products (Admin) - TOKO BAJU JENNIFER</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    form label {
+      font-family: open-sans-bold;
+      font-size: 12px;
+    }
+    form input, button {
+      font-family: open-sans-reguler;
+      font-size: 12px;
+    }
+    .field-input {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body class="container">
+  <form action="">
+    <div class="row">
+      <div class="form-group col-2">
+        <input type="radio" name="manageType" id="tambah" value="tambah" />
+        <label for="tambah">Tambah</label>
+      </div>
+      <div class="form-group col-2">
+        <input type="radio" name="manageType" id="update" value="update" />
+        <label for="update">Update</label>
+      </div>
+    </div>
+  </form>
+  <form name="main" method="POST" action="/tambah_produk">
+    <div class="row">
+      <div class="form-group col-4">
+        <label for="id_produk">ID Produk <span class="text-danger">*</span></label>
+        <input type="text" name="id_produk" class="form-control field-input" id="id_produk" required />
+      </div>
+      <div class="form-group col-8">
+        <label for="nama_produk">Nama Produk <span class="text-danger">*</span></label>
+        <input type="text" name="nama_produk" class="form-control field-input" id="nama_produk" required />
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col">
+        <label for="tipe_produk">Tipe Produk <span class="text-danger">*</span></label>
+        <select name="tipe_produk" class="form-control field-input" id="tipe_produk" required >
+          <option value="Daster">Daster</option>
+          <option value="Sekdress">Sekdress</option>
+          <option value="Longdress">Longdress</option>
+          <option value="Gamis Batik">Gamis Batik</option>
+          <option value="Hot Pants">Hot Pants</option>
+          <option value="Rok Celana">Rok Celana</option>
+          <option value="Celana Ponggol">Celana Ponggol</option>
+          <option value="Celana Panjang">Celana Panjang</option>
+        </select>
+      </div>
+      <div class="form-group col">
+        <label for="panjang_lengan">Panjang Lengan <span class="text-danger">*</span></label>
+        <select name="panjang_lengan" class="form-control field-input" id="panjang_lengan" required>
+          <option value="Kensi">Kensi</option>
+          <option value="Pendek">Pendek</option>
+          <option value="Tiga/Empat">Tangan 3/4</option>
+          <option value="Panjang">Panjang</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col">
+        <label for="merk_produk">Merk Produk <span class="text-danger">*</span></label>
+        <input type="text" name="merk_produk" class="form-control field-input" id="merk_produk" required />
+      </div>
+      <div class="form-group col">
+        <label for="harga_produk">Harga Produk <span class="text-danger">*</span></label>
+        <input type="text" name="harga_produk" class="form-control field-input" id="harga_produk" required />
+      </div>
+      <div class="form-group col">
+        <label for="stok_produk">Stok Produk <span class="text-danger">*</span></label>
+        <input type="text" name="stok_produk" class="form-control field-input" id="stok_produk" required />
+      </div>
+    </div>
+    <p><small>Required <span class="text-danger">*</span></small></p>
+    <div class="row">
+      <button type="reset" class="btn btn-outline-warning col-2 offset-3">RESET</button>
+      <button type="submit" id="submit" class="btn btn-outline-success col-2 offset-2">SUBMIT</button>
+    </div>
+  </form>
+  <script src="../javascripts/manage_products.js"></script>
+</body>
+</html>

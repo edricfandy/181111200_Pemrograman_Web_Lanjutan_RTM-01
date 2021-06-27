@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Masuk - TOKO BAJU JENNIFER
+    link(rel="stylesheet", href="../styles/main.css")
+    link(rel="stylesheet", href="../styles/register.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+  body.container-fluid 
+    .row.pt-8
+      .col-lg-5.pt-lg-5.d-none.d-lg-inline-block
+        .col-lg-8.offset-lg-4 
+          a(href="/")
+            img.logo.d-block.mt-5(src="../images/logo.png", alt="LOGO TOKO BAJU JENNIFER")
+          p.motto.mt-3.text-center Berbelanja Batik Rumahan dengan Aman dan Nyaman
+      .col-12.col-lg-7.pt-lg-5 
+        .col-lg-8.mx-auto.border-lg 
+          a(href="/")
+            img.logo.d-inline-block.d-lg-none.col-6.offset-3.mt-4(src="../images/logo.png", alt="LOGO TOKO BAJU JENNIFER")
+          if status
+            .col-12.p-2.mb-3.process-failed
+              if status == 1
+                | Akun Anda belum terdaftar 
+              else 
+                | Password yang Anda masukkan salah
+          h4.mt-3.mt-lg-0.title Masuk ke Akun Anda
+          p Belum punya akun? &nbsp;
+            a(href="/register/") Daftar Sekarang
+          form(method="POST", action="/login/") 
+            .form-group
+              label(for="username_or_phone_num") Username / No. Telepon 
+              input.form-control.register-data-input#username_or_phone_number(type="text", name="username_or_phone_num", required)
+            .form-group
+              label(for="password") Kata Sandi 
+              input.form-control.register-data-input#password(type="password", name="password", required)
+            .row
+              button.btn.btn-primary.mx-auto.mt-3(type="submit") Masuk
+
+

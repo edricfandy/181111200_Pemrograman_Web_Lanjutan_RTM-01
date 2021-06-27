@@ -1,0 +1,27 @@
+.logo {
+  width: 100%;
+}
+.motto {
+  font-family: poppins-regular;
+  font-size: 20px;
+  color: #423100;
+}
+.title {
+  font-family: poppins-bold;
+}
+.process-failed {
+  background-color: #EF9282;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+form label {
+  font-family: open-sans-bold;
+  font-size: 12px;
+}
+form input, button {
+  font-family: open-sans-reguler;
+  font-size: 12px;
+}
+.register-data-input {
+  font-size: 14px;
+}

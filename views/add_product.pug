@@ -1,0 +1,91 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Tambah Produk (Admin) - TOKO BAJU JENNIFER
+    - var mainStyle = '../styles/main.css'
+    - var productStyle = '../styles/products_admin.css'
+    if action == 'update'
+    - mainStyle = '../' + mainStyle
+    - productStyle = '../' + productStyle
+    link(rel='stylesheet' href=mainStyle)
+    link(rel='stylesheet' href=productStyle)
+    link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  body.container 
+    h3.text-center.my-5
+      if action == "tambah"
+        - var data = { id_produk: '', nama_produk: '', tipe_produk: '', panjang_lengan: '', merk_produk: '', harga_produk: '', stok_produk: '' }
+        | Tambah Produk
+      else 
+        | Update Produk
+    if status == "Data Exists"
+      .row 
+        .col.my-3.process-failed Gagal menambahkan produk. ID Produk yang dimasukkan telah digunakan.
+    form(name='main' method='POST' action='/products_admin/add')
+      .row
+        .form-group.col-4
+          label(for='id_produk')
+            | ID Produk 
+            span.text-danger *
+          if action == 'update'
+            input#id_produk.form-control.field-input(type='text' name='id_produk' required='' value=data.id_produk disabled)
+          else 
+            input#id_produk.form-control.field-input(type='text' name='id_produk' required='' value=data.id_produk)
+        .form-group.col-8
+          label(for='nama_produk')
+            | Nama Produk 
+            span.text-danger *
+          input#nama_produk.form-control.field-input(type='text' name='nama_produk' required='' value=data.nama_produk)
+      .row
+        .form-group.col
+          label(for='tipe_produk')
+            | Tipe Produk 
+            span.text-danger *
+          select#tipe_produk.form-control.field-input(name='tipe_produk' required='')
+            if action === 'tambah'
+              option(value='none' selected disabled hidden) Pilih Salah Satu
+            - var options = ['Daster', 'Sekdress', 'Longdress', 'Gamis Batik', 'Hot Pants', 'Rok Celana', 'Celana Ponggol', 'Celana Panjang']
+            for i in options
+              if i === data.tipe_produk
+                option(value=i selected) #{i}
+              else 
+                option(value=i) #{i}
+        .form-group.col
+          label(for='panjang_lengan')
+            | Panjang Lengan 
+            span.text-danger *
+          select#panjang_lengan.form-control.field-input(name='panjang_lengan' required='')
+            if action === 'tambah'
+              option(value = 'none' selected disabled hidden) Pilih Salah Satu
+            - var options = ['Kensi', 'Pendek', 'Tangan 3/4', 'Panjang']
+            for i in options
+              if i === data.panjang_lengan 
+                option(value=i selected) #{i}
+              else 
+                option(value=i) #{i}
+      .row
+        .form-group.col
+          label(for='merk_produk')
+            | Merk Produk 
+            span.text-danger *
+          input#merk_produk.form-control.field-input(type='text' name='merk_produk' required='' value=data.merk_produk)
+        .form-group.col
+          label(for='harga_produk')
+            | Harga Produk 
+            span.text-danger *
+          input#harga_produk.form-control.field-input(type='text' name='harga_produk' required='' value=data.harga_produk)
+        .form-group.col
+          label(for='stok_produk')
+            | Stok Produk 
+            span.text-danger *
+          input#stok_produk.form-control.field-input(type='text' name='stok_produk' required='' value=data.stok_produk)
+      p
+        small
+          | Required 
+          span.text-danger *
+      .row
+        button.btn.btn-outline-warning.col-2.offset-2(type='reset' name='reset') RESET
+        button.btn.btn-outline-success.col-2.offset-4(type='submit' name='submit') #{action.toUpperCase()}
+    script(src="../../javascripts/manage_products.js")
